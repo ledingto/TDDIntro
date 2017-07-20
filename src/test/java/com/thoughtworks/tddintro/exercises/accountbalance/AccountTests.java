@@ -4,27 +4,28 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class AccountTests {
     private Account account;
-    private double currBalance;
+
     @Before
     public void setUp() {
-        account = new Account();
-        currBalance = account.getBalance();
+        account = new Account(100);
     }
 
     @Test
     public void shouldIncreaseMyBalanceWhenIDepositMoney(){
         account.deposit(50);
-        assertTrue (account.getBalance() > currBalance);
+        assertThat(account.getBalance(), is(150.0));
     }
 
     @Test
     public void shouldDecreaseMyBalanceWhenIWithdrawMoney(){
         account.withdraw(50);
-        assertTrue(account.getBalance() < currBalance);
+        assertThat(account.getBalance(), is(50.0));
     }
 
     @Test

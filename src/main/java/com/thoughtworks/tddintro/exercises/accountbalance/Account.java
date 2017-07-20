@@ -4,8 +4,8 @@ public class Account {
 
     private double balance;
 
-    public Account() {
-        balance = 0.0;
+    public Account(double startingAmount) {
+        balance = startingAmount;
     }
 
     public void deposit(double amount) {
