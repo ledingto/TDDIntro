@@ -15,9 +15,11 @@ public class AccountTests {
     }
 
     @Test
-    @Ignore  // Remove each @Ignore and implement test
     public void shouldDecreaseMyBalanceWhenIWithdrawMoney(){
-
+        Account account = new Account();
+        double origBalance = account.getBalance();
+        account.withdraw(50);
+        assertTrue(account.getBalance() < origBalance);
     }
 
     @Test
